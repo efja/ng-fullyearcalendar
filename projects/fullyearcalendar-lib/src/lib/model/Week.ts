@@ -8,7 +8,7 @@ export class Week {
         }
     }
     isFull(): boolean {
-        return this.daysOfWeek[6].init;
+        return this.daysOfWeek[0].init;
     }
     add(day: Day): void {
         this.daysOfWeek[day.day.getDay()] = day;

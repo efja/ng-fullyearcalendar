@@ -11,14 +11,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let week of month.weeks">
-                <td *ngFor="let day of week.daysOfWeek" style="text-align: center;padding: 0px;">
-                    <div [className]="day && day.isDisabled ? 'disabled' : ''" (click)="day && day.isDisabled ? $event.stopPropagation() : dayClick(day)" *ngIf="day.init">
-                        <div #activeday class="day tooltip" [ngStyle]="day.ranges ? (underline) ? {'border-bottom':'5px solid ' + day.ranges[0].color,'margin-bottom':'-5px'} : {'background':day.ranges[0].color} : {'background':'transparent'}" >
-                            {{day.day.getDate()}}
-                            <span *ngIf="day.ranges">
+            <tr *ngFor="let week of month.weeks; let j = index">
+                <td *ngFor="let day of week.daysOfWeek; let i = index" style="text-align: center;padding: 0px;">
+                    <div [className]="week.daysOfWeek[(i + 1 ) % week.daysOfWeek.length] && week.daysOfWeek[(i + 1 ) % week.daysOfWeek.length].isDisabled ? 'disabled' : ''" (click)="week.daysOfWeek[(i + 1 ) % week.daysOfWeek.length] && week.daysOfWeek[(i + 1 ) % week.daysOfWeek.length].isDisabled ? $event.stopPropagation() : dayClick(week.daysOfWeek[(i + 1 ) % week.daysOfWeek.length])" *ngIf="week.daysOfWeek[(i + 1 ) % week.daysOfWeek.length].init">
+                        <div #activeday class="day tooltip" [ngStyle]="week.daysOfWeek[(i + 1 ) % week.daysOfWeek.length].ranges ? (underline) ? {'border-bottom':'5px solid ' + week.daysOfWeek[(i + 1 ) % week.daysOfWeek.length].ranges[0].color,'margin-bottom':'-5px'} : {'background':week.daysOfWeek[(i + 1 ) % week.daysOfWeek.length].ranges[0].color} : {'background':'transparent'}" >
+                            {{ i === 6
+                                ? week.daysOfWeek[0].day.getDate()
+                                : week.daysOfWeek[(i + 1 ) % week.daysOfWeek.length].day.getDate()
+                            }}
+                            <span *ngIf="week.daysOfWeek[(i + 1 ) % week.daysOfWeek.length].ranges">
                                 <span class="tooltiptext">
-                                    <span *ngFor="let t of day.ranges">
+                                    <span *ngFor="let t of week.daysOfWeek[(i + 1 ) % week.daysOfWeek.length].ranges">
                                         <div *ngIf="t.tooltip">
                                             {{t.tooltip}}
                                         </div>

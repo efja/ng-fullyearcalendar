@@ -19,7 +19,7 @@ export class FullyearcalendarLibComponent implements OnDestroy,DoCheck {
   
   @Input()
   locale:LocaleSettings = {
-    dayNamesMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+    dayNamesMin: ["Lu", "Ma", "Mi", "Ju", "Vi", "Sa", "Do"],
     monthNames: [ "January","February","March","April","May","June","July","August","September","October","November","December" ],
   };
 

@@ -3,7 +3,7 @@ import { IInputData } from 'projects/fullyearcalendar-lib/src/lib/Interface/IInp
 import { LocaleSettings } from 'projects/fullyearcalendar-lib/src/lib/Interface/LocaleSettings';
 import { ICalendarDate } from 'projects/fullyearcalendar-lib/src/lib/Interface/ICalendarDate';
 
-const dayNamesEn:string[] = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+const dayNamesEn:string[] = ["Lu", "Ma", "Mi", "Ju", "Vi", "Sa", "Do"];
 const dayNamesGr:string[] = ['Κυ', 'Δε', 'Τρ', 'Τε', 'Πε', 'Πα', 'Σα'];
 const monthNamesEn:string[] = [ "January","February","March","April","May","June","July","August","September","October","November","December" ];
 const monthNamesGr:string[] = ['Ιανουάριος','Φεβρουάριος','Μάρτιος','Απρίλιος','Μάϊος','Ιούνιος','Ιούλιος','Αύγουστος','Σεπτέμβριος','Οκτώμβριος','Νοέμβριος','Δεκέμβριος'];
