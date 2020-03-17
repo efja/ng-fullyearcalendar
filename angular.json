@@ -135,7 +135,7 @@
         }
       }
     },
-    "fullyearcalendar-lib": {
+    "mt-ng-fullyearcalendar": {
       "root": "projects/fullyearcalendar-lib",
       "sourceRoot": "projects/fullyearcalendar-lib/src",
       "projectType": "library",
