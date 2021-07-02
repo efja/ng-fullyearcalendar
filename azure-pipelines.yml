@@ -1,4 +1,10 @@
 # Starter pipeline
+- task: Npm@1
+  inputs:
+    command: 'publish'
+    workingDir: '/'
+    publishRegistry: 'useFeed'
+    publishFeed: '54d14d91-1e8b-49e0-a592-a96fbda187be/2216f29c-c87b-420f-b30c-325ab22f777c'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
