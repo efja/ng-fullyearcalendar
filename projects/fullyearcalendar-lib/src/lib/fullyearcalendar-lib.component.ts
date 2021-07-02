@@ -1,18 +1,9 @@
 import { Component, Input, Output, EventEmitter, OnDestroy, DoCheck } from '@angular/core';
-import { DayOfWeek } from './model/dayOfWeek';
 import { Year } from './model/Year';
 import {Range} from './model/Range';
-
-export const FULL_YEAR_DEFAULT_LOCALE:any = {
-  firstDayOfWeek: 0,
-  dayNames: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-  dayNamesEnum: [DayOfWeek.SUNDAY, DayOfWeek.MONDAY, DayOfWeek.TUESDAY, DayOfWeek.WEDNESDAY, DayOfWeek.THURSDAY, DayOfWeek.FRIDAY, DayOfWeek.SATURDAY],
-  dayNamesShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-  dayNamesMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
-  monthNames: [ "January","February","March","April","May","June","July","August","September","October","November","December" ],
-  monthNamesShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-  dateFormat: 'mm/dd/yy'
-};
+import { IInputData } from './Interface/IInputData';
+import { LocaleSettings } from './Interface/LocaleSettings';
+import { IDisabledDate } from './Interface/IDisabledDate';
 
 @Component({
   selector: 'ng-fullyearcalendar-lib',
@@ -20,17 +11,23 @@ export const FULL_YEAR_DEFAULT_LOCALE:any = {
   styleUrls:['fullyearcalendar-lib.scss'],
 })
 export class FullyearcalendarLibComponent implements OnDestroy,DoCheck {
-  
+
   private initial_data:string;
-  
+
   @Input()
-  locale:any = FULL_YEAR_DEFAULT_LOCALE;
+  underline:boolean = false;
+
+  @Input()
+  locale:LocaleSettings = {
+    dayNamesMin: ["Lu", "Ma", "Mi", "Ju", "Vi", "Sa", "Do"],
+    monthNames: [ "January","February","March","April","May","June","July","August","September","October","November","December" ],
+  };
 
   @Input()
   responsive:boolean = true;
 
-  value:any;
- 
+  value:IInputData;
+
   @Output()
   onDaySelect:EventEmitter<Date> = new EventEmitter<Date>();
 
@@ -45,7 +42,7 @@ export class FullyearcalendarLibComponent implements OnDestroy,DoCheck {
   /**
    * from on push in values ,comparing if there is any difference
    */
-  ngDoCheck(): void { 
+  ngDoCheck(): void {
     let stringData = JSON.stringify(this.value);
     if(this.initial_data !== stringData) {
       this.initial_data = stringData;
@@ -55,40 +52,49 @@ export class FullyearcalendarLibComponent implements OnDestroy,DoCheck {
 
 
   @Input('value')
-  set _initValue(val:any) {
+  set _initValue(val:IInputData) {
     this.value = val;
     this.initValue(val);
   }
 
-  private initValue(val:any,oldValue:string = null):void {
+  private initValue(val:IInputData,oldValue:string = null):void {
     this.year = new Year(val.year);
       this.initial_data = oldValue != null ? oldValue : JSON.stringify(val);
-      if(this.value.dates && this.value.dates.length > 0){
-        for(let d of this.value.dates) {
           for(let m of this.year.months) {
             for(let w of m.weeks) {
               for(let day of w.daysOfWeek) {
-                if(day.day >= d.start && day.day <= d.end) {
-                  let range = new Range();
-                  range.id = d.id;
-                  range.start = d.start;
-                  range.end = d.end;
-                  range.tooltip = d.tooltip;
-                  range.color = (d.color) ? d.color : 'gray';
-                  range.day = day.day;
-                  range.select  = ():void => {
-                    d.select(range);
+                if(this.value.dates && this.value.dates.length > 0) {
+                  for(let d of this.value.dates) {
+                    if(day.day >= d.start && day.day <= d.end) {
+                      let range = new Range();
+                      range.id = d.id;
+                      range.start = d.start;
+                      range.end = d.end;
+                      range.tooltip = d.tooltip;
+                      range.color = (d.color) ? d.color : 'gray';
+                      range.day = day.day;
+                      range.select  = ():void => {
+                        if(typeof d.select === 'function') {
+                          d.select(range);
+                        }
+                      }
+                      if(!day.ranges){day.ranges = []};
+                      day.ranges.push(range);
+                    }
                   }
                   if(!day.ranges){day.ranges = []};
                   day.ranges.push(range);
                 }
+                day.isDisabled = this.isDisabled(day.day,this.value.disabledDays);
               }
             }
           }
-        }
-      }
   }
 
+  isDisabled(date:Date,disabledDays:IDisabledDate[]):boolean {
+    return date && disabledDays && ((disabledDays.find(i=>i.date.getFullYear() == date.getFullYear()
+    && i.date.getMonth() == date.getMonth() && i.date.getDate() == date.getDate())) != null);
+  }
 
   onDayClicked(day:Date):void {
     this.onDaySelect.emit(day);

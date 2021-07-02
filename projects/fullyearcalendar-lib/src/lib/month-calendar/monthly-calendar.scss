@@ -6,14 +6,15 @@
     .day {
         cursor: pointer;
         padding: 4px;
+        margin-left:-2px;
     }
     .day:hover {
         background: lightgray !important;
         border: 0px;
         border-radius: 3px;
     }
-    .day-range {
-        margin-left:-2px;
+    .disabled {
+        color: gray;
     }
     .tooltip .tooltiptext {
         visibility: hidden;

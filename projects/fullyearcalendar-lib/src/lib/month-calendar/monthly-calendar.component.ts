@@ -9,7 +9,8 @@ import { Day } from "../model/Day";
 })
 export class MonthlyCalendarComponent implements OnDestroy  {
     
-   
+    @Input()
+    underline:boolean = false;
     @Input()
     locale:any;
     @Input()
@@ -31,4 +32,5 @@ export class MonthlyCalendarComponent implements OnDestroy  {
             this.onDayClicked.emit(day.day);
         }
     }
+
 }
