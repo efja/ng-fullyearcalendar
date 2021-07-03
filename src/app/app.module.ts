@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-import { FullyearcalendarLibModule } from 'projects/fullyearcalendar-lib/src/public_api';
+import { InzoPortalempleadoCalendarModule } from 'projects/inzo-portalempleado-calendar-lib/src/public_api';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {DialogModule} from 'primeng/dialog';
@@ -24,7 +24,7 @@ import {CheckboxModule} from 'primeng/checkbox';
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    FullyearcalendarLibModule,
+    InzoPortalempleadoCalendarModule,
     DialogModule,
     ButtonModule,
     CalendarModule,

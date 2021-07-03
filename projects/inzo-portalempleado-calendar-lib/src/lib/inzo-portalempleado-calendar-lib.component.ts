@@ -6,11 +6,11 @@ import { LocaleSettings } from './Interface/LocaleSettings';
 import { IDisabledDate } from './Interface/IDisabledDate';
 
 @Component({
-  selector: 'ng-fullyearcalendar-lib',
-  templateUrl:'fullyearcalendar-lib.html',
-  styleUrls:['fullyearcalendar-lib.scss'],
+  selector: 'ng-inzo-portalempleado-calendar-lib',
+  templateUrl:'inzo-portalempleado-calendar-lib.html',
+  styleUrls:['inzo-portalempleado-calendar-lib.scss'],
 })
-export class FullyearcalendarLibComponent implements OnDestroy,DoCheck {
+export class InzoPortalempleadoCalendarComponent implements OnDestroy,DoCheck {
 
   private initial_data:string;
 
@@ -82,8 +82,8 @@ export class FullyearcalendarLibComponent implements OnDestroy,DoCheck {
                       day.ranges.push(range);
                     }
                   }
-                  if(!day.ranges){day.ranges = []};
-                  day.ranges.push(range);
+                  // if(!day.ranges){day.ranges = []};
+                  // day.ranges.push(range);
                 }
                 day.isDisabled = this.isDisabled(day.day,this.value.disabledDays);
               }

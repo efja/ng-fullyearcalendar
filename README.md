@@ -4,20 +4,20 @@ A full year calendar for Angular applications. <br>
 <br>
 <b>[Live Demo](https://avraampiperidis.github.io/ng-fullyearcalendar/docs/) </b> <br>
 ## Install
-npm i  fullyearcalendar-lib
+npm i  inzo-portalempleado-calendar-lib
 ## Simple  usage
 <b>Module</b>
 ```typescript
-import { FullyearcalendarLibModule } from 'node_modules/fullyearcalendar-lib/';
+import { InzoPortalempleadoCalendarModule } from 'node_modules/inzo-portalempleado-calendar-lib/';
 ```
 <b>html</b><br>
 ```html
-<ng-fullyearcalendar-lib [value]="value"></ng-fullyearcalendar-lib>
+<ng-inzo-portalempleado-calendar-lib [value]="value"></ng-inzo-portalempleado-calendar-lib>
 ```
 <b>Component</b><br>
 
 ```typescript
-import { IInputData } from 'fullyearcalendar-lib/lib/Interface/IInputData';
+import { IInputData } from 'inzo-portalempleado-calendar-lib/lib/Interface/IInputData';
 
 value:IInputData = {
       year: new Date().getFullYear() //2019
@@ -26,7 +26,7 @@ value:IInputData = {
 
 ## Date ranges
 ```typescript
-import { ICalendarDate } from 'fullyearcalendar-lib/lib/Interface/ICalendarDate';
+import { ICalendarDate } from 'inzo-portalempleado-calendar-lib/lib/Interface/ICalendarDate';
 
 value:IInputData = {
       year: new Date().getFullYear(), //2019
@@ -64,7 +64,7 @@ onRangeSelect(range:ICalendarDate):void {
 
 ## Custom Locale
 ```typescript
-import { LocaleSettings } from 'fullyearcalendar-lib/lib/Interface/LocaleSettings';
+import { LocaleSettings } from 'inzo-portalempleado-calendar-lib/lib/Interface/LocaleSettings';
 
 locale: LocaleSettings = {
     dayNamesMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
@@ -74,7 +74,7 @@ locale: LocaleSettings = {
 
 ## Disabled days
 ```typescript
-import { ICalendarDate } from 'fullyearcalendar-lib/lib/Interface/ICalendarDate';
+import { ICalendarDate } from 'inzo-portalempleado-calendar-lib/lib/Interface/ICalendarDate';
 
 value:IInputData = {
       year: new Date().getFullYear(), //2019
@@ -87,7 +87,7 @@ value:IInputData = {
 ```
 
 ```html
-<ng-fullyearcalendar-lib [responsive]="responsive" [locale]="locale" [underline]="underline" [value]="value" (onDaySelect)="onDaySelect($event)"></ng-fullyearcalendar-lib>
+<ng-inzo-portalempleado-calendar-lib [responsive]="responsive" [locale]="locale" [underline]="underline" [value]="value" (onDaySelect)="onDaySelect($event)"></ng-inzo-portalempleado-calendar-lib>
 ```
 
 #### Properties

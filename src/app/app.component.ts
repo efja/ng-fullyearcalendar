@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IInputData } from 'projects/fullyearcalendar-lib/src/lib/Interface/IInputData';
-import { LocaleSettings } from 'projects/fullyearcalendar-lib/src/lib/Interface/LocaleSettings';
-import { ICalendarDate } from 'projects/fullyearcalendar-lib/src/lib/Interface/ICalendarDate';
+import { IInputData } from 'projects/inzo-portalempleado-calendar-lib/src/lib/Interface/IInputData';
+import { LocaleSettings } from 'projects/inzo-portalempleado-calendar-lib/src/lib/Interface/LocaleSettings';
+import { ICalendarDate } from 'projects/inzo-portalempleado-calendar-lib/src/lib/Interface/ICalendarDate';
 
 const dayNamesEn:string[] = ["Lu", "Ma", "Mi", "Ju", "Vi", "Sa", "Do"];
 const dayNamesGr:string[] = ['Κυ', 'Δε', 'Τρ', 'Τε', 'Πε', 'Πα', 'Σα'];

@@ -6,7 +6,7 @@ describe('AppComponent', () => {
   it('should create the app', () => {
   });
 
-  it(`should have as title 'full-year-calendar-lib-app'`, () => {
+  it(`should have as title 'inzo-portalempleado-calendar-lib'`, () => {
     expect(true).toBe(true);
   });
 

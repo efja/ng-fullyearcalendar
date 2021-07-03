@@ -1,5 +1,5 @@
 {
-  "name": "mt-ng-fullyearcalendar",
+  "name": "mt-inzo-portalempleado-calendar",
   "version": "1.0.0",
   "description":"A full year calendar library for angular",
   "keywords" :["Angular","Library","Calendar"],
@@ -8,5 +8,5 @@
     "@angular/common": ">=4.0.0",
     "@angular/core": ">=4.0.0"
   }
-  
+
 }

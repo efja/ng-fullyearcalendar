@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/fullyearcalendar-lib",
+  "dest": "../../dist/inzo-portalempleado-calendar-lib",
   "lib": {
     "entryFile": "src/public_api.ts"
   }

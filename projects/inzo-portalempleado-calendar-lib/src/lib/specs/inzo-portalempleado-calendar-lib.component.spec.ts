@@ -1,10 +1,10 @@
-import { FullyearcalendarLibComponent } from '../fullyearcalendar-lib.component';
+import { InzoPortalempleadoCalendarComponent } from '../inzo-portalempleado-calendar-lib.component';
 
-describe('FullyearcalendarLibComponent Test', () => {
-  var comp:FullyearcalendarLibComponent;
+describe('InzoPortalempleadoCalendarComponent Test', () => {
+  var comp:InzoPortalempleadoCalendarComponent;
 
   beforeEach(()=> {
-    comp = new FullyearcalendarLibComponent();
+    comp = new InzoPortalempleadoCalendarComponent();
     comp._initValue = {year:2019,dates:[
       {
         id:1,

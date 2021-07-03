@@ -18,11 +18,11 @@
       "dom"
     ],
     "paths": {
-      "fullyearcalendar-lib": [
-        "dist/fullyearcalendar-lib"
+      "inzo-portalempleado-calendar-lib": [
+        "dist/inzo-portalempleado-calendar-lib"
       ],
-      "fullyearcalendar-lib/*": [
-        "dist/fullyearcalendar-lib/*"
+      "inzo-portalempleado-calendar-lib/*": [
+        "dist/inzo-portalempleado-calendar-lib/*"
       ]
     }
   }
