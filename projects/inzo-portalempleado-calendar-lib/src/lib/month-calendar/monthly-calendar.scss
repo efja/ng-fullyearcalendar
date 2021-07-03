@@ -1,0 +1,35 @@
+:host {
+    .container {
+        padding:10px;
+    }
+    font-size: 14px;
+    .day {
+        cursor: pointer;
+        padding: 4px;
+        margin-left:-2px;
+    }
+    .day:hover {
+        background: lightgray !important;
+        border: 0px;
+        border-radius: 3px;
+    }
+    .disabled {
+        color: gray;
+    }
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        background-color: rgba(230, 222, 222, 0.986);
+        color: rgb(27, 26, 26);
+        text-align: center;
+        border-radius: 4px;
+        padding: 4px;
+      
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+    }
+      
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
+}

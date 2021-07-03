@@ -1,0 +1,12 @@
+{
+  "name": "mt-inzo-portalempleado-calendar",
+  "version": "1.0.0",
+  "description":"A full year calendar library for angular",
+  "keywords" :["Angular","Library","Calendar"],
+  "license" : "SEE LICENSE IN LICENSE",
+  "peerDependencies": {
+    "@angular/common": ">=4.0.0",
+    "@angular/core": ">=4.0.0"
+  }
+
+}
